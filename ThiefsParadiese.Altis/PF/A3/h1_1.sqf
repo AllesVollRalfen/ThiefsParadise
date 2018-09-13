@@ -7,17 +7,17 @@ _init = [_building,_owner] call GOM_fnc_initBuildingDoors;
 
 private _chairW1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chairW2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
-private _desk1=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk1=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
-private _shelf=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
+private _shelf=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
 private _TV=createVehicle["Land_FlatTV_01_F",[0,0,0]];
 private _sofa=createVehicle["Land_Sofa_01_F",[0,0,0]];
 private _bed=createVehicle["Land_CampingTable_F",[0,0,0]];
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
-private _rack=createSimpleObject["Land_Rack_F",[0,0,0]];
+private _rack=createVehicle["Land_Rack_F",[0,0,0]];
 private _trash=createSimpleObject["Land_WheelieBin_01_F",[0,0,0]];
 
 _price = round(random [750, 1000, 1300]);
@@ -28,6 +28,9 @@ _microW addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
 
 _sofa addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_shelf addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _trash attachTo[_h,[4.1,4.4,0.85]];_trash setDir 180;

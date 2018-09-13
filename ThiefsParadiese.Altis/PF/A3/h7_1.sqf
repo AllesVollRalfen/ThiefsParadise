@@ -1,10 +1,14 @@
 //Land_i_Stone_HouseSmall_V1_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _axe=createSimpleObject["Land_Axe_F",[0,0,0]];
 private _basket=createSimpleObject["Land_Basket_F",[0,0,0]];
-private _bed1=createSimpleObject["Land_CampingTable_F",[0,0,0]];
-private _bed2=createSimpleObject["Land_CampingTable_F",[0,0,0]];
+private _bed1=createVehicle["Land_CampingTable_F",[0,0,0]];
+private _bed2=createVehicle["Land_CampingTable_F",[0,0,0]];
 private _blanket1=createSimpleObject["Land_Sleeping_bag_brown_F",[0,0,0]];
 private _blanket2=createSimpleObject["Land_Sleeping_bag_brown_F",[0,0,0]];
 private _bottle=createSimpleObject["Land_WaterBottle_01_compressed_F",[0,0,0]];
@@ -16,7 +20,7 @@ private _chair1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair3=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _crates=createVehicle["Land_CratesWooden_F",[0,0,0],[],0,"can_collide"];_crates enableSimulationGlobal false;
-private _desk=createSimpleObject["OfficeTable_01_old_F",[0,0,0]];
+private _desk=createVehicle["OfficeTable_01_old_F",[0,0,0]];
 private _gen=createSimpleObject["Land_Portable_generator_F",[0,0,0]];
 private _glove=createSimpleObject["Land_Gloves_F",[0,0,0]];
 private _logs=createVehicle["Land_WoodPile_F",[0,0,0],[],0,"can_collide"];_logs enableSimulationGlobal false;
@@ -27,15 +31,23 @@ private _pillow2=createSimpleObject[_pillow,[0,0,0]];
 private _poster=selectRandom["Land_Poster_01_F","Land_Poster_02_F","Land_Poster_03_F"];
 private _poster=createVehicle[_poster,[0,0,0],[],0,"can_collide"];_poster enableSimulationGlobal false;
 private _radio=selectRandom["Land_FMRadio_F","Land_SurvivalRadio_F"];
-private _radio=createSimpleObject[_radio,[0,0,0]];
+private _radio=createVehicle[_radio,[0,0,0]];
 private _rug=selectRandom["Land_Rug_01_F","Land_Rug_01_Traditional_F"];
 private _rug=createVehicle[_rug,[0,0,0],[],0,"can_collide"];_rug enableSimulationGlobal false;
-private _shelf=createSimpleObject["Land_OfficeCabinet_02_F",[0,0,0]];
+private _shelf=createVehicle["Land_OfficeCabinet_02_F",[0,0,0]];
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
 private _stump=createSimpleObject["Land_WoodenLog_F",[0,0,0]];
 private _table=createSimpleObject["Land_WoodenTable_large_F",[0,0,0]];
 private _towels=createSimpleObject["Land_Tableware_01_stackOfNapkins_F",[0,0,0]];
 private _wrench=createSimpleObject["Land_Wrench_F",[0,0,0]];
+
+_price = round(random [50, 75, 100]);
+_radio addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_bed1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_bed2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_shelf addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+
 
 _table attachTo[_h,[8.75,2,1.62]];
 _desk attachTo[_h,[4.3,-.7,1.62]];_desk setDir 180;

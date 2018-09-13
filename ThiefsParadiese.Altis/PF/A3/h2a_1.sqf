@@ -8,13 +8,14 @@ _init = [_building,_owner] call GOM_fnc_initBuildingDoors;
 private _bed=createVehicle["Land_WoodenBed_01_F",[0,0,0]];
 private _sofa=createVehicle["Land_ArmChair_01_F",[0,0,0]];
 private _chairW=createSimpleObject["Land_ChairWood_F",[0,0,0]];
-private _desk=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _cTable=createSimpleObject["Land_TableSmall_01_F",[0,0,0]];
 private _dTable=createSimpleObject["Land_TableBig_01_F",[0,0,0]];
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
 
 _bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _sofa addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _bed attachTo[_h,[6.5,0,0.82]];_bed setDir 90;
 _sofa attachTo[_h,[1.8,-2.6,0.86]];_sofa setDir 45;

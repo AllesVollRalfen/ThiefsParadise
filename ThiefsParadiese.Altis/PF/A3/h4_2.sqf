@@ -1,41 +1,83 @@
 //Land_i_House_Big_02_V1_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _ball=createSimpleObject["Land_Baseball_01_F",[0,0,0]];
-private _bed=createSimpleObject["Land_WoodenBed_01_F",[0,0,0]];
-private _boombox=createSimpleObject["Land_PortableSpeakers_01_F",[0,0,0]];
-private _box=createSimpleObject["Land_PaperBox_01_small_open_brown_F",[0,0,0]];
+private _bed=createVehicle["Land_WoodenBed_01_F",[0,0,0]];
+private _boombox=createVehicle["Land_PortableSpeakers_01_F",[0,0,0]];
+private _box=createVehicle["Land_PaperBox_01_small_open_brown_F",[0,0,0]];
 private _chair1=createSimpleObject["Land_CampingChair_V1_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_CampingChair_V1_F",[0,0,0]];
 private _chairW1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chairW2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _cord=createSimpleObject["Land_ExtensionCord_F",[0,0,0]];
-private _desk1=createSimpleObject["OfficeTable_01_old_F",[0,0,0]];
-private _desk2=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk3=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk1=createVehicle["OfficeTable_01_old_F",[0,0,0]];
+private _desk2=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk3=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
 private _glove=createSimpleObject["Land_BaseballMitt_01_F",[0,0,0]];
-private _HDMI=createSimpleObject["Land_HDMICable_01_F",[0,0,0]];
+private _HDMI=createVehicle["Land_HDMICable_01_F",[0,0,0]];
 private _luggage=createVehicle["Land_LuggageHeap_01_F",[0,0,0],[],0,"can_collide"];_luggage enableSimulationGlobal false;
-private _mCase=createSimpleObject["Land_PlasticCase_01_small_F",[0,0,0]];
-private _microW=createSimpleObject["Land_Microwave_01_F",[0,0,0]];
+private _mCase=createVehicle["Land_PlasticCase_01_small_F",[0,0,0]];
+private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _pot=createSimpleObject["Land_FlowerPot_01_F",[0,0,0]];
-private _rack=createSimpleObject["Land_Metal_wooden_rack_F",[0,0,0]];
+private _rack=createVehicle["Land_Metal_wooden_rack_F",[0,0,0]];
 private _sack=createVehicle["Land_Sack_F",[0,0,0],[],0,"can_collide"];_sack enableSimulationGlobal false;
 private _shelf=createVehicle["Land_OfficeCabinet_01_F",[0,0,0],[],0,"can_collide"];_shelf enableSimulationGlobal false;
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
-private _sofa1=createSimpleObject["Land_ArmChair_01_F",[0,0,0]];
-private _sofa2=createSimpleObject["Land_Sofa_01_F",[0,0,0]];
+private _sofa1=createVehicle["Land_ArmChair_01_F",[0,0,0]];
+private _sofa2=createVehicle["Land_Sofa_01_F",[0,0,0]];
 private _sTable=createSimpleObject["Land_RattanTable_01_F",[0,0,0]];
 private _sTable1=createSimpleObject["Land_WoodenTable_small_F",[0,0,0]];
 private _trash=createSimpleObject["Land_WheelieBin_01_F",[0,0,0]];
 private _trophy=selectRandom["Land_Trophy_01_bronze_F","Land_Trophy_01_silver_F","Land_Trophy_01_gold_F"];
-private _trophy=createSimpleObject[_trophy,[0,0,0]];
-private _TV=createSimpleObject["Land_FlatTV_01_F",[0,0,0]];
-private _xbox=createSimpleObject["Land_GamignSet_01_console_F",[0,0,0]];
-private _xboxCam=createSimpleObject["Land_GamignSet_01_camera_F",[0,0,0]];
-private _xboxC1=createSimpleObject["Land_GamingSet_01_controller_F",[0,0,0]];
-private _xboxC2=createSimpleObject["Land_GamingSet_01_controller_F",[0,0,0]];
+private _trophy=createVehicle[_trophy,[0,0,0]];
+private _TV=createVehicle["Land_FlatTV_01_F",[0,0,0]];
+private _xbox=createVehicle["Land_GamignSet_01_console_F",[0,0,0]];
+private _xboxCam=createVehicle["Land_GamingSet_01_camera_F",[0,0,0]];
+private _xboxC1=createVehicle["Land_GamingSet_01_controller_F",[0,0,0]];
+private _xboxC2=createVehicle["Land_GamingSet_01_controller_F",[0,0,0]];
+
+_price = round(random [150, 200, 300]);
+_boombox addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [3, 5, 10]);
+_HDMI addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [50, 75, 100]);
+_microW addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [150, 250, 450]);
+_trophy addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [200, 300, 400]);
+_xbox addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [30, 40, 50]);
+_xboxCam addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [15, 25, 50]);
+_xboxC1 addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [15, 25, 50]);
+_xboxC2 addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [250, 500, 750]);
+_TV addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_box addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk3 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_luggage addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_mcase addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sofa1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sofa2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _trash attachTo[_h,[1.75,-1.05,.73]];_trash setDir 250;
 _rack attachTo[_h,[2.36,-1.81,0.72]];_rack setDir 90;

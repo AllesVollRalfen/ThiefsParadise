@@ -1,6 +1,10 @@
 //Land_Barn_01_brown_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _bucket1=createSimpleObject["Land_Bucket_painted_F",[0,0,0]];
 private _bucket2=createSimpleObject["Land_Bucket_painted_F",[0,0,0]];
 private _can1=createSimpleObject["Land_CanisterPlastic_F",[0,0,0]];

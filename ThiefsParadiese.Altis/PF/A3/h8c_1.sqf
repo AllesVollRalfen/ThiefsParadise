@@ -1,18 +1,27 @@
 //Land_i_Addon_02_V1_F
 private _h=_this;
 
-private _bed=createSimpleObject["Land_CampingTable_F",[0,0,0]];
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
+private _bed=createVehicle["Land_CampingTable_F",[0,0,0]];
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _chair1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _desk=createSimpleObject["Land_TableDesk_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
-private _microW=createSimpleObject["Land_Microwave_01_F",[0,0,0]];
+private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
 private _table=createSimpleObject["Land_WoodenTable_small_F",[0,0,0]];
 private _pillow=selectRandom["Land_Pillow_F","Land_Pillow_camouflage_F","Land_Pillow_grey_F","Land_Pillow_old_F"];
 private _pillow=createSimpleObject[_pillow,[0,0,0]];
+
+_price = round(random [50, 75, 100]);
+_microW addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _sink attachTo[_H,[-1.45,4,.85]];
 _fridge attachTo[_H,[-2.9,4,.8]];

@@ -7,32 +7,32 @@ _init = [_building,_owner] call GOM_fnc_initBuildingDoors;
 
 private _bed=createVehicle["Land_WoodenBed_01_F",[0,0,0]];
 private _sofa2=createVehicle["Land_ArmChair_01_F",[0,0,0]];
-private _radio=createSimpleObject["Land_FMRadio_F",[0,0,0]];
+private _radio=createVehicle["Land_FMRadio_F",[0,0,0]];
 private _dTable=createSimpleObject["Land_TableBig_01_F",[0,0,0]];
 private _chairW1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chairW2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chairW3=createSimpleObject["Land_ChairWood_F",[0,0,0]];
-private _desk1=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk2=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk3=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk1=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk2=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk3=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
 private _luggage=createVehicle["Land_LuggageHeap_01_F",[0,0,0],[],0,"can_collide"];_luggage enableSimulationGlobal false;
 private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
-private _desk4=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _shelf=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
+private _desk4=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _shelf=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
 private _mCase=createSimpleObject["Land_PlasticCase_01_small_F",[0,0,0]];
 private _pcCase=createVehicle["Land_PCSet_01_case_F",[0,0,0]];
 private _pcChair=createSimpleObject["Land_OfficeChair_01_F",[0,0,0]];
 private _pcScreen=createVehicle["Land_PCSet_01_screen_F",[0,0,0]];
-private _shelfW=createSimpleObject["Land_ShelvesWooden_F",[0,0,0]];
+private _shelfW=createVehicle["Land_ShelvesWooden_F",[0,0,0]];
 private _plant=createSimpleObject["Land_FlowerPot_01_Flower_F",[0,0,0]];
-private _printer=createSimpleObject["Land_Printer_01_F",[0,0,0]];
+private _printer=createVehicle["Land_Printer_01_F",[0,0,0]];
 private _sTable=createSimpleObject["Land_RattanTable_01_F",[0,0,0]];
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
 private _TV=createVehicle["Land_FlatTV_01_F",[0,0,0]];
 private _sofa1=createVehicle["Land_Sofa_01_F",[0,0,0]];
-private _rack=createSimpleObject["Land_Rack_F",[0,0,0]];
+private _rack=createVehicle["Land_Rack_F",[0,0,0]];
 private _trash=createSimpleObject["Land_WheelieBin_01_F",[0,0,0]];
 private _rug=selectRandom["Land_Rug_01_F","Land_Rug_01_Traditional_F"];
 private _rug=createVehicle[_rug,[0,0,0],[],0,"can_collide"];_rug enableSimulationGlobal false;
@@ -49,10 +49,23 @@ _pcScreen addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price
 _price = round(random [500, 800, 1800]);
 _pcCase addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
 
+_price = round(random [20, 35, 50]);
+_radio addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_price = round(random [50, 100, 150]);
+_printer addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+
 _sofa1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _sofa2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _luggage addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk3 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk4 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_shelf addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _plant attachTo[_h,[2.8,0.4,1.25]];

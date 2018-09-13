@@ -1,6 +1,10 @@
 //Land_Shed_08_grey_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _basket=createSimpleObject["Land_Basket_F",[0,0,0]];
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
@@ -8,14 +12,20 @@ private _box1=createVehicle["Land_PaperBox_01_small_destroyed_brown_F",[0,0,0],[
 private _box2=createVehicle["Land_PaperBox_01_small_ransacked_brown_F",[0,0,0],[],0,"can_collide"];_box2 enableSimulationGlobal false;
 private _chair1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
-private _rack=createSimpleObject["Land_OfficeCabinet_02_F",[0,0,0]];
-private _sack=createSimpleObject["Land_Sack_F",[0,0,0]];
-private _sacks=createSimpleObject["Land_Sacks_goods_F",[0,0,0]];
+private _rack=createVehicle["Land_OfficeCabinet_02_F",[0,0,0]];
+private _sack=createVehicle["Land_Sack_F",[0,0,0]];
+private _sacks=createVehicle["Land_Sacks_goods_F",[0,0,0]];
 private _table=createSimpleObject["Land_WoodenTable_small_F",[0,0,0]];
 private _trash=createSimpleObject["Land_Garbage_square5_F",[0,0,0]];
 private _trashPile=createSimpleObject["Land_GarbageBags_F",[0,0,0]];
 private _graf=selectRandom["Land_Graffiti_01_F","Land_Graffiti_02_F","Land_Graffiti_03_F","Land_Graffiti_04_F"];
 private _graf=createVehicle[_graf,[0,0,0],[],0,"can_collide"];_graf enableSimulationGlobal false;
+
+_box1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_box2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sacks addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _table attachTo[_h,[-4.45,-2.2,.5]];_table setDir 90;
 _chair1 attachTo[_h,[-4.5,-1.8,.07]];_chair1 setDir 0;

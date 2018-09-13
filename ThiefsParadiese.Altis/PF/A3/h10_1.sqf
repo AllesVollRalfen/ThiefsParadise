@@ -1,6 +1,10 @@
 //Land_i_Stone_Shed_01_c_raw_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _bucket=createSimpleObject["Land_Bucket_F",[0,0,0]];

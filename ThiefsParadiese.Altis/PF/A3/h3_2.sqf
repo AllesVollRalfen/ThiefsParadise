@@ -1,7 +1,11 @@
 //Land_i_Shop_02_V1_F	-	RESTAURANT
 private _h=_this;
 
-private _cashier=createSimpleObject["Land_CashDesk_F",[0,0,0]];
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
+private _cashier=createVehicle["Land_CashDesk_F",[0,0,0]];
 private _chair1=createSimpleObject["Land_RattanChair_01_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_RattanChair_01_F",[0,0,0]];
 private _chair3=createSimpleObject["Land_RattanChair_01_F",[0,0,0]];
@@ -32,6 +36,8 @@ private _sTable=createSimpleObject["Land_RattanTable_01_F",[0,0,0]];
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
 private _sign=createSimpleObject["Land_InfoSign_V1_F",[0,0,0]];
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
+
+_cashier addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _dTable1 attachTo[_h,[3.26,-3.185,0.94]];_dTable1 setDir 90;
 _chair1 attachTo[_h,[3.26,-1.79,1.06]];

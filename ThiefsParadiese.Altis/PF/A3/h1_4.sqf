@@ -1,23 +1,25 @@
 //Land_Offices_01_V1_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
 
 private _bucket=createSimpleObject["Land_Bucket_F",[0,0,0]];
-private _cashier=createSimpleObject["Land_Bucket_F",[0,0,0]];
 private _cashier=createVehicle["Land_CashDesk_F",[0,0,0]];
 private _chair1=createSimpleObject["Land_CampingChair_V2_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_CampingChair_V2_F",[0,0,0]];
 private _cup=createSimpleObject["Land_Tableware_01_cup_F",[0,0,0]];
-private _desk0=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk1=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk2=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk3=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk4=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk5=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk6=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk7=createSimpleObject["OfficeTable_01_new_F",[0,0,0]];
-private _desk8=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk9=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk0=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk1=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk2=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk3=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk4=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk5=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk6=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk7=createVehicle["OfficeTable_01_new_F",[0,0,0]];
+private _desk8=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk9=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _paper=createSimpleObject["Leaflet_05_New_F",[0,0,0]];
 private _papers=createSimpleObject["Leaflet_05_Stack_F",[0,0,0]];
 private _pcChair1=createSimpleObject["Land_OfficeChair_01_F",[0,0,0]];
@@ -28,8 +30,8 @@ private _pcPad=createSimpleObject["Land_PCSet_01_mousepad_F",[0,0,0]];
 private _pcScreen1=createVehicle["Land_PCSet_01_screen_F",[0,0,0]];
 private _pcScreen2=createVehicle["Land_PCSet_01_screen_F",[0,0,0]];
 private _plant=createSimpleObject["Land_FlowerPot_01_Flower_F",[0,0,0]];
-private _rack1=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
-private _rack2=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
+private _rack1=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
+private _rack2=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
 
 _price = round(random [10, 30, 60]);
@@ -45,6 +47,18 @@ _price = round(random [300, 500, 1000]);
 _pcScreen2 addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
 
 _cashier addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk0 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk3 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk4 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk5 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk6 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk7 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk8 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk9 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _desk0 attachTo[_h,[9.6,-1.4,1.32]];_desk0 setDir 180;

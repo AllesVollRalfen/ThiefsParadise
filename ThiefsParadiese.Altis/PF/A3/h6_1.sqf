@@ -1,8 +1,12 @@
 //Land_i_Stone_Shed_V1_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _basket=createSimpleObject["Land_Basket_F",[0,0,0]];
-private _bed=createSimpleObject["Land_CampingTable_F",[0,0,0]];
+private _bed=createVehicle["Land_CampingTable_F",[0,0,0]];
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _chair=createSimpleObject["Land_CampingChair_V1_folded_F",[0,0,0]];
@@ -11,8 +15,11 @@ private _chairW2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _flag1=createVehicle["Banner_01_F",[0,0,0],[],0,"can_collide"];_flag1 enableSimulationGlobal false;
 private _pillow=selectRandom["Land_Pillow_F","Land_Pillow_camouflage_F","Land_Pillow_grey_F","Land_Pillow_old_F"];
 private _pillow=createSimpleObject[_pillow,[0,0,0]];
-private _sacks=createSimpleObject["Land_Sacks_goods_F",[0,0,0]];
+private _sacks=createVehicle["Land_Sacks_goods_F",[0,0,0]];
 private _table=createSimpleObject["Land_WoodenTable_small_F",[0,0,0]];
+
+_bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sacks addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _table attachTo[_h,[.5,3.8,0.68]];_table setDir 90;
 _chairW1 attachTo[_h,[1.04,3.8,0.25]];_chairW1 setDir 90;

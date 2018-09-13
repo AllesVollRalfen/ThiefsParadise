@@ -1,5 +1,7 @@
 //Land_i_Shop_01_V1_F	-	Electronics Store
 private _h=_this;
+
+
 _building = (nearestobjects [_this, ["house"], 5]) select 0;
 _owner = player;
 _init = [_building,_owner] call GOM_fnc_initBuildingDoors;
@@ -42,7 +44,7 @@ private _laptop3=createVehicle["Land_Laptop_unfolded_F",[0,0,0]];
 private _laptop4=createVehicle["Land_Laptop_F",[0,0,0]];
 private _laptop5=createVehicle["Land_Laptop_F",[0,0,0]];
 private _laptop6=createVehicle["Land_Laptop_F",[0,0,0]];
-private _shelf=createSimpleObject["Land_ShelvesMetal_F",[0,0,0]];
+private _shelf=createVehicle["Land_ShelvesMetal_F",[0,0,0]];
 private _sign1=createVehicle["UserTexture1m_F",[0,0,0],[],0,"can_collide"];_sign1 enableSimulationGlobal false;_sign1 setObjectTextureGlobal[0,"a3\data_f\flags\flag_bis_co.paa"];
 private _sign2=createVehicle["UserTexture1m_F",[0,0,0],[],0,"can_collide"];_sign2 enableSimulationGlobal false;_sign2 setObjectTextureGlobal[0,"\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_lyfe_co.paa"];
 private _sign3=createVehicle["UserTexture1m_F",[0,0,0],[],0,"can_collide"];_sign3 enableSimulationGlobal false;_sign3 setObjectTextureGlobal[0,"\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_mars_co.paa"];
@@ -104,6 +106,7 @@ _laptop6 addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price]
 _bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _cashier addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _sofa addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_shelf addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _desk1 attachTo[_h,[1.7,2.275,.68]];_desk1 setDir 270;

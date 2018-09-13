@@ -1,6 +1,10 @@
 //Land_i_Addon_03_V1_F
 private _H=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _chair1=createSimpleObject["Land_ChairPlastic_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairPlastic_F",[0,0,0]];
 private _chair3=createSimpleObject["Land_ChairPlastic_F",[0,0,0]];

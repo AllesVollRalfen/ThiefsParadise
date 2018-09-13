@@ -13,13 +13,13 @@ private _blanket1=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket1 e
 private _blanket2=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket2 enableSimulationGlobal false;
 private _chair1=createSimpleObject["Land_ChairPlastic_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairPlastic_F",[0,0,0]];
-private _desk=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
 private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _pillow=selectRandom["Land_Pillow_F","Land_Pillow_camouflage_F","Land_Pillow_grey_F","Land_Pillow_old_F"];
 private _pillow1=createSimpleObject[_pillow,[0,0,0]];
 private _pillow2=createSimpleObject[_pillow,[0,0,0]];
-private _rack=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
+private _rack=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
 private _sack=createVehicle["Land_Sack_F",[0,0,0],[],0,"can_collide"];_sack enableSimulationGlobal false;
 private _radio=createVehicle["Land_FMradio_F",[0,0,0]];
 private _sink=createSimpleObject["Land_Sink_F",[0,0,0]];
@@ -34,6 +34,9 @@ _radio addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
 
 _bed1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _bed2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_sack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _trash attachTo[_h,[-3.3,2.4,0.9]];_trash setDir 180;

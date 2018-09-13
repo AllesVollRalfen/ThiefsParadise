@@ -1,14 +1,25 @@
 //Land_i_Addon_02_V1_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
 private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _chair=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _cup=createSimpleObject["Land_Tableware_01_cup_F",[0,0,0]];
-private _desk=createSimpleObject["OfficeTable_01_old_F",[0,0,0]];
-private _laptop=createSimpleObject["Land_Laptop_02_unfolded_F",[0,0,0]];
-private _rack1=createSimpleObject["Land_OfficeCabinet_02_F",[0,0,0]];
-private _rack2=createSimpleObject["Land_ShelvesWooden_F",[0,0,0]];
+private _desk=createVehicle["OfficeTable_01_old_F",[0,0,0]];
+private _laptop=createVehicle["Land_Laptop_02_unfolded_F",[0,0,0]];
+private _rack1=createVehicle["Land_OfficeCabinet_02_F",[0,0,0]];
+private _rack2=createVehicle["Land_ShelvesWooden_F",[0,0,0]];
+
+_price = round(random [250, 500, 1000]);
+_laptop addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
+
+_rack1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _desk attachTo[_h,[0,0.07,0.704]];_desk setDir 180;
 _rack1 attachTo[_h,[1.1,-0.04,1.06]];_rack1 setDir 180;

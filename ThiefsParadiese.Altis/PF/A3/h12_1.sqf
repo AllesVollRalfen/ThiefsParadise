@@ -1,6 +1,10 @@
 //Land_Slum_House02_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _basket=createSimpleObject["Land_Basket_F",[0,0,0]];
 private _blanket=createVehicle[(selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"]),[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _boxes=createVehicle["Land_CratesShabby_F",[0,0,0],[],0,"can_collide"];_boxes enableSimulationGlobal false;
@@ -8,6 +12,8 @@ private _can=createSimpleObject["Land_CanisterPlastic_F",[0,0,0]];
 private _chair=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _table=createSimpleObject["Land_WoodenTable_small_F",[0,0,0]];
 private _trash=createVehicle["Land_Garbage_square3_F",[0,0,0],[],0,"can_collide"];
+
+_boxes addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _boxes attachTo[_h,[2.95,3.25,.84]];
 _basket attachTo[_h,[2.32,3.54,.42]];_basket setDir(random 359);

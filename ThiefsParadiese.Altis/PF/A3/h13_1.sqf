@@ -1,6 +1,10 @@
 //Land_Slum_House03_F
 private _h=_this;
 
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
 private _blanket=createVehicle[(selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"]),[0,0,0],[],0,"can_collide"];_blanket enableSimulationGlobal false;
 private _crate=createVehicle["Land_CratesWooden_F",[0,0,0],[],0,"can_collide"];_crate enableSimulationGlobal false;
 private _boxes=createVehicle["Land_CratesShabby_F",[0,0,0],[],0,"can_collide"];_boxes enableSimulationGlobal false;
@@ -8,6 +12,11 @@ private _can=createSimpleObject["Land_CanisterPlastic_F",[0,0,0]];
 private _box=createVehicle["Land_PaperBox_01_small_ransacked_brown_F",[0,0,0],[],0,"can_collide"];_box enableSimulationGlobal false;
 private _pbox=createVehicle["Land_CratesPlastic_F",[0,0,0],[],0,"can_collide"];_pbox enableSimulationGlobal false;
 private _stool=createSimpleObject["Land_Bench_F",[0,0,0]];
+
+_crate addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_boxes addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_box addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_pbox addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _stool attachTo[_h,[0,-.5,0.23]];_stool setDir 90;
 _pbox attachTo[_h,[1.33,-0.3,0.23]];_pbox setDir 80+(random 15);

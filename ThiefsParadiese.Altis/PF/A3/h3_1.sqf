@@ -1,20 +1,24 @@
 //Land_CarService_F
 private _h=_this;
 
-private _desk=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+_building = (nearestobjects [_this, ["house"], 5]) select 0;
+_owner = player;
+_init = [_building,_owner] call GOM_fnc_initBuildingDoors;
+
+private _desk=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _pcChair=createSimpleObject["Land_OfficeChair_01_F",[0,0,0]];
 private _chairM1=createSimpleObject["Land_CampingChair_V2_F",[0,0,0]];
 private _chairM2=createSimpleObject["Land_CampingChair_V2_F",[0,0,0]];
 private _trash=createSimpleObject["Land_WheelieBin_01_F",[0,0,0]];
-private _car=createSimpleObject["C_Hatchback_01_F",[0,0,0]];
+private _car=createVehicle["C_Hatchback_01_F",[0,0,0]];
 private _sign=createSimpleObject["Land_Billboard_02_carrental_F",[0,0,0]];
 private _weldTank=createSimpleObject["Land_GasTank_02_F",[0,0,0]];
 private _weldCart=createSimpleObject["Land_WeldingTrolley_01_F",[0,0,0]];
-private _toolBox1=createSimpleObject["Land_ToolTrolley_02_F",[0,0,0]];
-private _toolBox2=createSimpleObject["Land_ToolTrolley_01_F",[0,0,0]];
+private _toolBox1=createVehicle["Land_ToolTrolley_02_F",[0,0,0]];
+private _toolBox2=createVehicle["Land_ToolTrolley_01_F",[0,0,0]];
 private _tires=createSimpleObject["TyreBarrier_01_black_F",[0,0,0]];
 private _canister=createSimpleObject["Land_CanisterPlastic_F",[0,0,0]];
-private _crates=createSimpleObject["Land_CratesWooden_F",[0,0,0]];
+private _crates=createVehicle["Land_CratesWooden_F",[0,0,0]];
 private _drill=createSimpleObject["Land_DrillAku_F",[0,0,0]];
 private _screwdriver1=createSimpleObject["Land_Screwdriver_V2_F",[0,0,0]];
 private _screwdriver2=createSimpleObject["Land_Screwdriver_V1_F",[0,0,0]];
@@ -27,6 +31,12 @@ private _bucket1=createSimpleObject["Land_PlasticBucket_01_closed_F",[0,0,0]];
 private _bucket2=createSimpleObject["Land_PlasticBucket_01_open_F",[0,0,0]];
 private _plant=createSimpleObject["Land_FlowerPot_01_Flower_F",[0,0,0]];
 private _spray=createSimpleObject["Land_DisinfectantSpray_F",[0,0,0]];
+
+_desk addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_car addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_toolBox1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_toolBox2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_crates addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 _trash attachTo[_h,[4.6,8.1,1]];_trash setDir 180;
 _sign attachTo[_h,[3.9,-2.1,2]];

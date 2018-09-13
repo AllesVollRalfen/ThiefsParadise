@@ -1,5 +1,6 @@
 //Land_i_House_Small_02_V1_F
 private _h=_this;
+
 _building = (nearestobjects [_this, ["house"], 5]) select 0;
 _owner = player;
 _init = [_building,_owner] call GOM_fnc_initBuildingDoors;
@@ -10,15 +11,15 @@ private _blanket=createVehicle[_blanket,[0,0,0],[],0,"can_collide"];_blanket ena
 private _chair1=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair2=createSimpleObject["Land_ChairWood_F",[0,0,0]];
 private _chair3=createSimpleObject["Land_ChairWood_F",[0,0,0]];
-private _desk1=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk2=createSimpleObject["Land_TableDesk_F",[0,0,0]];
-private _desk3=createSimpleObject["Land_TableDesk_F",[0,0,0]];
+private _desk1=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk2=createVehicle["Land_TableDesk_F",[0,0,0]];
+private _desk3=createVehicle["Land_TableDesk_F",[0,0,0]];
 private _fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
 private _microW=createVehicle["Land_Microwave_01_F",[0,0,0]];
 private _pillow=selectRandom["Land_Pillow_F","Land_Pillow_camouflage_F","Land_Pillow_grey_F","Land_Pillow_old_F"];
 private _pillow=createSimpleObject[_pillow,[0,0,0]];
 private _plant=createSimpleObject["Land_FlowerPot_01_Flower_F",[0,0,0]];
-private _rack=createSimpleObject["Land_OfficeCabinet_01_F",[0,0,0]];
+private _rack=createVehicle["Land_OfficeCabinet_01_F",[0,0,0]];
 private _sofa1=createVehicle["Land_ArmChair_01_F",[0,0,0]];
 private _sofa2=createVehicle["Land_Sofa_01_F",[0,0,0]];
 private _table1=createSimpleObject["Land_RattanTable_01_F",[0,0,0]];
@@ -35,6 +36,10 @@ _TV addAction ["<img size='2' image='res\take.paa'/>", "beute.sqf", _price];
 _bed addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _sofa1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 _sofa2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk1 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk2 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_desk3 addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
+_rack addAction ["<img size='2' image='res\search.paa'/>", "search.sqf"];
 
 
 _sofa1 attachTo[_H,[7.03,-1.5,.88]];_sofa1 setDir 270;
